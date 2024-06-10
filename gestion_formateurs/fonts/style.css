@@ -1,0 +1,91 @@
+
+  body {
+    font-family: 'Helvetica';
+    font-size: 12px;
+    padding:0;
+    background-color: purple;
+    margin:0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content:center;
+    max-width: 100vw;
+ 
+}
+
+.container {
+    background-color: #fff;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+h1 {
+    color: #333;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+table {
+    /* width: 100vw; */
+    border-collapse: collapse;
+    margin-top: 20px auto;
+    display:inline-block;
+    border-radius: 3px;
+
+}
+a{
+    border-radius: 3px;
+    text-decoration: none;
+    transition: .3s linear;
+}
+a:hover{
+    opacity: 1;
+    
+}
+th, td {
+    border: 2px solid #ddd;
+    padding: 8px;
+    border-radius: 3px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+.btn-container {
+    margin-top: 20px;
+}
+
+.btnAjouter{
+    background-color: rgb(49, 176, 49);
+    color:white;
+    padding: 10px;
+    display: inline-block;
+    margin: 0 0 20px 20px;
+}
+
+
+.btnEditer {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px ;
+    margin-right: 5px;
+    text-decoration: none;
+    
+}
+
+.btnSupprimer {
+    background-color: #f03245;
+    color: #fff;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+@media screen {
+    
+}
