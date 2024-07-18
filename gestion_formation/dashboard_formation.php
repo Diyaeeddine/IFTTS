@@ -79,7 +79,7 @@ body {
 
 .return {
     float:right;
-    padding: 10px 20px;
+    padding: 10px 10px;
     background-color: #fff;
     text-decoration: none;
     color: #000;
@@ -135,7 +135,7 @@ li {
 
 li a {
     border: solid 1px #fff;
-    padding: 10px 20px;
+    padding: 10px 10px;
     border-radius: 10px;
     color: #000;
     background: #fff;
@@ -182,15 +182,15 @@ img {
             <h2>IFTTS AL HOCEIMA</h2>
         </div>
         <ul>
-            <li><a href="http://localhost/IFTTS/home/about.php">À propos</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="../home/about.php">À propos</a></li>
+            <li><a href="../home/contact.php">Contact</a></li>
         </ul>
     </div>
 </nav>
 
 <div class="container">
     <div class='head'>
-    <a href="../home/home.php" class="return"><i class="fa-solid fa-arrow-left"></i>&nbsp Retour à la page d'accueil</a>
+    <a href="../home/home.php" class="return"><i class="fa-solid fa-arrow-left"></i>&nbspRetour à la page d'accueil</a>
     <h1>Page des matières </h1></div>
     <div class="btn-container">
         <a href="liste_formation.php" class="btn" title="Accéder à la gestion des formations qui contient la liste des formation"><i class="fa-solid fa-gears"></i>&nbsp; Gestion matières</a>

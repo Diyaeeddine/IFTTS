@@ -164,13 +164,13 @@ footer {
 
         	<ul>
 				<li><a href="http://localhost/IFTTS/home/about.php">About</a></li>
-				<li><a href="#">Contact</a></li>    
+				<li><a href="./contact.php">Contact</a></li>    
 
 			</ul>
 		</div>
 </nav>
 
-
+<h1></h1>
 <div class="flexes">
 <a href="../gestion_formation/dashboard_formation.php" class="custom-link">
         <div><p><i class="fa-solid fa-school"></i>&nbsp Les matières</p></div>

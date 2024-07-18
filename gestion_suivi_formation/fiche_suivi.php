@@ -49,11 +49,14 @@ if (isset($_GET['CIN']) && isset($_GET['matieres']) && isset($_GET['Niveau']) &&
     JOIN 
         programme_groupes pg ON pf.matieres = pg.matieres
     WHERE 
-        sf.CIN = '$CIN' AND
-        sf.matiere = '$matieres' AND
-        (pf.niveau = $Niveau or pf.niveau = 3) AND
-        mois='$mois' AND
-        sf.N_Groupe = '$N_Groupe'
+    sf.CIN = '$CIN' AND
+    sf.matiere = '$matieres' AND
+    sf.Niveau = '$Niveau' AND
+    (pf.niveau = $Niveau or pf.niveau = 3) AND
+    pg.Niveau = '$Niveau' AND
+    mois='$mois' AND
+    sf.N_Groupe = '$N_Groupe'
+    AND pg.N_Groupe = '$N_Groupe'
     ORDER BY 
         sf.N_Seance ASC;
     ";
@@ -122,7 +125,7 @@ if (isset($_GET['CIN']) && isset($_GET['matieres']) && isset($_GET['Niveau']) &&
     .txt {
         text-align: center;
         display: flex;
-        margin-left: 30px;
+        margin-left: 10px;
         margin-top: 15px;
         font-size: 12px;
         font-weight: bold;
@@ -260,7 +263,7 @@ if (isset($_GET['CIN']) && isset($_GET['matieres']) && isset($_GET['Niveau']) &&
                 echo "</tr>";
             }
         } else {
-            echo "<tr><td colspan='6'>Aucune séance trouvée pour ce formateur et cette matière.</td></tr>";
+            echo "<tr><td colspan='6'>Aucune séance trouvée.</td></tr>";
         }
         ?>
             </tbody>

@@ -122,9 +122,12 @@ if (isset($_GET['CIN']) && isset($_GET['matieres']) && isset($_GET['Niveau']) &&
     WHERE 
         sf.CIN = '$CIN' AND
         sf.matiere = '$matieres' AND
+        sf.Niveau = '$Niveau' AND
         (pf.niveau = $Niveau or pf.niveau = 3) AND
+        pg.Niveau = '$Niveau' AND
         mois='$mois' AND
         sf.N_Groupe = '$N_Groupe'
+        AND pg.N_Groupe = '$N_Groupe'
     ORDER BY 
         sf.N_Seance ASC;
     ";
@@ -133,8 +136,14 @@ if (isset($_GET['CIN']) && isset($_GET['matieres']) && isset($_GET['Niveau']) &&
     // Calculate total hours for the month
     $total_hours_query = "
     SELECT SUM(N_heures) as total_hours
-    FROM suivi_formations
-    WHERE CIN = '$CIN' AND matiere = '$matieres' AND mois = '$mois'";
+    FROM 
+        suivi_formations sf
+    WHERE 
+        sf.CIN = '$CIN' AND
+        sf.matiere = '$matieres' AND
+        sf.Niveau = '$Niveau' AND
+        sf.mois='$mois' AND
+        sf.N_Groupe = '$N_Groupe'";
     $total_hours_result = mysqli_query($conn, $total_hours_query);
     $total_hours_row = mysqli_fetch_assoc($total_hours_result);
     $total_hours = $total_hours_row['total_hours'];
@@ -262,7 +271,7 @@ if (isset($_GET['CIN']) && isset($_GET['matieres']) && isset($_GET['Niveau']) &&
                     echo "</tr>";
                 }
             } else {
-                echo "<tr><td colspan='7'>Aucune séance trouvée pour ce formateur et cette matière.</td></tr>";
+                echo "<tr><td colspan='7'>Aucune séance trouvée.</td></tr>";
             }
             ?>
         </tbody>
@@ -294,7 +303,7 @@ if (isset($_GET['CIN']) && isset($_GET['matieres']) && isset($_GET['Niveau']) &&
 
     // Check for the specific message row
     var messageRow = table.querySelector('tbody tr td[colspan="7"]');
-    if (messageRow && messageRow.textContent.trim() === "Aucune séance trouvée pour ce formateur et cette matière.") {
+    if (messageRow && messageRow.textContent.trim() === "Aucune séance trouvée.") {
         numRows -= 3; // Adjust for the message row, header, and footer
     } else {
         numRows -= 2; // Adjust for the header and footer rows

@@ -69,7 +69,7 @@
                             <td>" . $row['promotion'] . "</td>
                             <td>" . $row['filiere'] . "</td>
                             <td>
-                                <a href='liste_stagiaire.php?N_Groupe=" . $row['N_Groupe'] . "'>Afficher les stagiaires</a>
+                                <a href='../gestion_stagiaires/liste_stagiaires.php?N_Groupe=" . $row['N_Groupe'] . "'>Afficher les stagiaires</a>
                             </td>
                           </tr>";
                 }

@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST["email"];
         $grade = $_POST["grade"];
         $diplome_re = $_POST["diplome_re"];
-        $diplome_acces = $_POST["diplome_acces"];
+        $diplome_acces = $_POST["diplome_accees"];
         $date_naissance = $_POST["date_naissance"];
         $rib = $_POST["rib"];
 

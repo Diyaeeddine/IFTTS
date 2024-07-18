@@ -11,6 +11,11 @@
         font-family: poppins, sans-serif;
         font-weight: 500;
     }
+    #mat-ens{
+max-width:600px;
+
+
+    }
     </style>
 </head>
 
@@ -54,9 +59,11 @@
                 pg.N_Groupe = $N_Groupe AND pg.Niveau = $Niveau 
             ORDER BY pg.matieres ASC";
     ?>
-    <div class='m-5'>
+    <div class='m-5 d-flex justify-content-between'>
         <a href="groupe_niveau.php?N_Groupe=<?php echo $N_Groupe ?>" class='link'><img src="back.svg"
                 alt="Retour">Retour</a>
+                <a href="suivi_heures.php?N_Groupe=<?php echo $N_Groupe ?>&Niveau=<?php echo $Niveau ?>" class="btn btn-primary">
+                Suivi des heures des matières</a>
     </div>
     <div class="container ">
 
@@ -66,6 +73,7 @@
     <div class="form-group mx-2" style="max-width: 600px;">
         <label for="matiere" class="mr-2">Matière:</label>
         <select name="matiere" id="matiere" class="form-control w-100">
+            
             <?php 
                 $sql_matiere = "SELECT matieres, CAST(SUBSTRING(matieres, 3, LENGTH(matieres) - 2) AS UNSIGNED) AS uf_number 
                                 FROM programme_formation 
@@ -100,10 +108,11 @@
         </select>
     </div>
     <div class='form-group mx-2'>
-    <button type="submit" class="btn btn-success d-inline-block">Ajouter</button>
+    <button type="submit" class="btn btn-success d-inline-block">Ajouter</button> 
 </div>
 
 </form>
+
 
 
     </div>
@@ -115,7 +124,7 @@
             echo '<table class="table table-bordered mt-5">';
             echo '<thead class="thead-dark">';
             echo '<tr>';
-            echo '<th scope="col">Matières Enseignées</th>';
+            echo '<th scope="col" >Matières Enseignées</th>';
             echo '<th scope="col">Formateur</th>';
             echo '<th scope="col p-0 m-0">Actions</th>';
             echo '</tr>';
@@ -123,7 +132,7 @@
             echo '<tbody>';
             while ($row = $result->fetch_assoc()) {
                 echo '<tr>';
-                echo '<td>' . $row['matiere_enseignee'] . '</td>';
+                echo '<td id="mat-ens">' . $row['matiere_enseignee'] . '</td>';
                 echo '<td>' . $row['nom_formateur'] . ' ' . $row['prenom_formateur'] . '</td>';
                 echo '<td class="text-center">';
 echo '<div class="d-flex justify-content-around">';
@@ -132,6 +141,7 @@ echo '<a href="selectmonth.php?N_Groupe=' . $N_Groupe . '&Niveau=' . $Niveau . '
 echo '</div>';
 echo '</td>';
                 echo '</tr>';
+
             }
             
             echo '</tbody>';

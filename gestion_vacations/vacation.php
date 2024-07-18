@@ -226,7 +226,7 @@ $result = mysqli_query($conn, $sqlpromotion);
             $BRUT = number_format($row['BRUT'], 2, '.', '');
             $IR = number_format($row['IR'], 2, '.', '');
             $NET = number_format($row['NET'], 2, '.', '');
-            
+            if(!$Nombre==0){
             echo "<tr>
               <td>$CIN</td>
               <td>$Nom</td>
@@ -241,6 +241,7 @@ $result = mysqli_query($conn, $sqlpromotion);
               <td style='text-align:right'>$IR</td>
               <td style='text-align:right'>$NET</td>
             </tr>";
+        }
           }
         } else {
           echo "<tr><td colspan='11' class='text-center'>Aucune donnée trouvée</td></tr>";

@@ -143,7 +143,7 @@ $resultatCount = $conn->query($requeteCount);
                             echo '<td class="tdBtn d-flex flex-nowrap justify-content-around">
                                    <div class=""> <a href="edit.php?CIN=' . htmlspecialchars($row["CIN"]) . '" class="btn btn-warning"><img src="pen.svg" class=""
                                     alt="Modifier"></a></div>
-                                    <div> <a href="delete.php?CIN=' . htmlspecialchars($row["CIN"]) . '" class="btn btn-danger" onclick="return confirm(\'Êtes-vous sûr de supprimer ce formateur  [ ' . htmlspecialchars($row["prenom"]) . ' ] ?\')"><img src="trash.svg" class=""
+                                    <div> <a href="delete.php?CIN=' . htmlspecialchars($row["CIN"]) . '" class="btn btn-danger" onclick="return confirm(\'Êtes-vous sûr de supprimer le formateur  '. htmlspecialchars($row["nom"])  .' '. htmlspecialchars($row["prenom"]) . '  ?\')"><img src="trash.svg" class=""
                                     alt="Supprimer"></a></div>
                                     <div> <a href="details.php?CIN=' . htmlspecialchars($row["CIN"]) . '" class="btn btn-secondary"><img src="info.svg" class=""
                                     alt="Details"></a></div>
