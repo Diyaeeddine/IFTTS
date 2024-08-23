@@ -24,7 +24,7 @@ if (isset($_GET["CIN"])) {
         $Situation_familiale=$row["Situation_familiale"]; 
         $telephone = $row["telephone"];
         $email = $row["email"];
-
+        $image_src=$row["image_src"];
         $grade = $row["grade"];
         $diplome_re = $row["diplome_re"];
         $diplome_acces = $row["diplome_accees"];

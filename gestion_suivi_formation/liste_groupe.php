@@ -22,6 +22,10 @@
 
             font-family: poppins, sans-serif;
         }
+        table{
+            margin-left:auto;
+            margin-right: auto;
+        }
 
         section {
             margin: 10px;
@@ -44,12 +48,11 @@
     <h2 class="text-center mt-4 mb-4">Suivi de formation</h2>
     <div class="container">
         <div id="alert-message" class="alert" role="alert" style="display: none;"></div>
-        <table class='table mt-5'>
+        <table class='table mt-5 w-75'>
             <thead>
                 <th>Numéro de groupe</th>
                 <th>Promotion</th>
                 <th>Filière</th>
-                <th>Liste des stagiaires</th>
             </thead>
             <?php 
             include "connection.php";
@@ -68,9 +71,6 @@
                             </td>
                             <td>" . $row['promotion'] . "</td>
                             <td>" . $row['filiere'] . "</td>
-                            <td>
-                                <a href='../gestion_stagiaires/liste_stagiaires.php?N_Groupe=" . $row['N_Groupe'] . "'>Afficher les stagiaires</a>
-                            </td>
                           </tr>";
                 }
             }

@@ -124,7 +124,7 @@ tr:nth-child(even) {
 </head>
 <body>
     <div class="container">
-    <a href="dashboard_formation.php" class="return"><i class="fa-solid fa-arrow-left"></i>&nbsp Revenir à l'accueil</a>
+    <a href="dashboard_formation.php" class="return"><i class="fa-solid fa-arrow-left"></i>&nbsp Retour</a>
 
         <h1>Résultats de Filtration</h1>
         <br>
@@ -145,7 +145,7 @@ tr:nth-child(even) {
                 }
 
                 // Récupérer les niveaux existants dans la base de données
-                $sql_niveau = "SELECT DISTINCT niveau FROM programme_formation order by niveau asc";
+                $sql_niveau = "SELECT DISTINCT niveau FROM programme_formation where niveau!=4 order by niveau asc";
                 $result_niveau = $conn->query($sql_niveau);
                 if ($result_niveau->num_rows > 0) {
                     while ($row = $result_niveau->fetch_assoc()) {
@@ -154,7 +154,7 @@ tr:nth-child(even) {
                             echo '1ère année';
                         } elseif ($row['niveau'] == 2) {
                             echo '2ème année';
-                        } else {
+                        } elseif ($row['niveau'] == 3) {
                             echo '1ère et 2ème année';
                         }                        
                         echo "</option>";

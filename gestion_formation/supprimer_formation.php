@@ -133,48 +133,41 @@
         <h1>Suppression de Formation</h1>
 
         <?php
-        // Database connection
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "iftts";
+include 'connection.php';
 
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
+// Check if form data is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $matiere = $_POST['matiere'];
 
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+    // Delete related records from resultats table
+    $sql0 = "DELETE FROM resultats WHERE matiere='$matiere'";
+    $conn->query($sql0);
 
-        // Check if form data is submitted
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $matiere = $_POST['matiere'];
+    // Delete formation from the database
+    $sql1 = "DELETE FROM suivi_formations WHERE matiere='$matiere'";
+    $conn->query($sql1);
+    $sql2 = "DELETE FROM vacations WHERE matiere='$matiere'";
+    $conn->query($sql2);
+    $sql3 = "DELETE FROM programme_groupes WHERE matieres='$matiere'";
+    $conn->query($sql3);
+    $sql4 = "DELETE FROM programme_formation WHERE matieres='$matiere'";
+    $conn->query($sql4);
 
-            // Delete formation from the database
-            $sql1 = "DELETE FROM suivi_formations WHERE matiere='$matiere'";
-            $conn->query($sql1);
-            $sql2 = "DELETE FROM vacations WHERE matiere='$matiere'";
-            $conn->query($sql2);
-            $sql3 = "DELETE FROM programme_groupes WHERE matieres='$matiere'";
-            $conn->query($sql3);
-            $sql4 = "DELETE FROM programme_formation WHERE matieres='$matiere'";
-            $conn->query($sql4);
-            $conn->commit();
+    if ($conn->commit()) {
+        echo '<div class="success">Formation supprimée avec succès!</div>';
+    } else {
+        echo '<div class="error">Erreur lors de la suppression de la formation: ' . $conn->error . '</div>';
+    }
+}
 
-            if ($conn->query($sql1) === TRUE && $conn->query($sql2) === TRUE && $conn->query($sql4) === TRUE && $conn->query($sql4) === TRUE) {
-                echo '<div class="success">Formation supprimée avec succès!</div>';
-            } else {
-                echo '<div class="error">Erreur lors de la suppression de la formation: ' . $conn->error . '</div>';
-            }
-        }
+// Retrieve list of formations
+$sql = "SELECT matieres,
+CAST(SUBSTRING(matieres, 3, LENGTH(matieres) - 2) AS UNSIGNED) AS uf_number 
+FROM programme_formation 
+ORDER BY uf_number ASC, date_creation ASC";
+$result = $conn->query($sql);
+?>
 
-        $sql = "SELECT matieres ,
-        CAST(SUBSTRING(matieres, 3, LENGTH(matieres) - 2) AS UNSIGNED) AS uf_number 
-        FROM programme_formation 
-        ORDER BY uf_number ASC, date_creation ASC";
-        $result = $conn->query($sql);
-        ?>
 
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <label for="matiere">Sélectionner une Formation à Supprimer:</label>

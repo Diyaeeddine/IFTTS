@@ -20,16 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Check if the CIN already exists in the database
+
     $checkCINQuery = "SELECT CIN FROM formateurs WHERE CIN = '$CIN'";
     $result = $conn->query($checkCINQuery);
 
     if ($result->num_rows > 0) {
-        // CIN already exists, redirect with error message
+  
         header("Location: liste_formateurs.php?msgAjoute=ErrorCINExists");
         exit(); 
     } else {
-        // CIN does not exist, proceed to insert the new record
+
         $sql = "INSERT INTO formateurs (CIN, nom, prenom, sexe, Situation_familiale, ville, telephone, email, grade, diplome_re, diplome_accees, date_naissance, rib) 
         VALUES ('$CIN', '$nom', '$prenom', '$sexe', '$Situation_familiale', '$ville', '$telephone', '$email', '$grade', '$diplome_re', '$diplome_acces', '$date_naissance', '$rib')";
 

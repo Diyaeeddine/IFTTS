@@ -16,12 +16,12 @@
 </head>
 
 <body>
-    <div class='d-flex justify-content-between align-items-center container'>
-        <div class='m-5'>
+    <div class='d-flex justify-content-between align-items-center container m-5'>
+        <div class=''>
             <a href="recherche.php" class='link'><img src="back.svg" alt="Retour"> Retour</a>
         </div>
         <div>
-            <button id="reloadButton" class="btn btn-primary  mt-3"><img src="refresh.svg" alt="Actualiser">Actualiser la page</button>
+            <button id="reloadButton" class="btn btn-primary"><img src="refresh.svg" alt="">Actualiser la page</button>
         </div>
     </div>
     <div class="container mt-2">
@@ -40,12 +40,12 @@
 
         <form id="modificationForm">
             <div class="form-group">
-                <label for="taux">Nouveau Taux</label>
+                <label for="taux">Nouveau Taux :</label>
                 <input type="number" class="form-control" id="taux" name="taux" placeholder="Entrez le nouveau taux"
                     step="0.01" required>
             </div>
             <div class="form-group">
-                <label for="ir">Nouveau IR</label>
+                <label for="ir">Nouveau IR :</label>
                 <input type="number" class="form-control" id="ir" name="ir" placeholder="Entrez le nouveau IR"
                     step="0.01" required>
             </div>

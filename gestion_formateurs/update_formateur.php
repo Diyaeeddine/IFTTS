@@ -2,7 +2,8 @@
 include 'connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST['CIN'])) {
+    if(isset($_POST['CIN']) && isset($_POST['oldCIN'])) {
+        $oldCIN = $_POST["oldCIN"];
         $CIN = $_POST["CIN"];
         $nom = $_POST["nom"];
         $prenom = $_POST["prenom"];
@@ -17,32 +18,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $date_naissance = $_POST["date_naissance"];
         $rib = $_POST["rib"];
 
+        // Désactiver les contraintes de clés étrangères
+        $conn->query("SET FOREIGN_KEY_CHECKS = 0");
+
+        // Mise à jour des tables étrangères
+        $conn->query("UPDATE vacations SET CIN = '$CIN' WHERE CIN = '$oldCIN'");
+        $conn->query("UPDATE suivi_formations SET CIN = '$CIN' WHERE CIN = '$oldCIN'");
+        $conn->query("UPDATE programme_groupes SET CIN_formateur = '$CIN' WHERE CIN_formateur = '$oldCIN'");
+
+        // Mise à jour de la table formateurs
         $sql = "UPDATE formateurs 
-        SET
-            nom='$nom', 
-            prenom='$prenom', 
-            ville='$ville', 
-            sexe='$sexe', 
-            Situation_familiale='$Situation_familiale', 
-            telephone='$telephone', 
-            email='$email', 
-            grade='$grade', 
-            diplome_re='$diplome_re', 
-            diplome_accees='$diplome_acces', 
-            date_naissance='$date_naissance', 
-            rib='$rib' 
-        WHERE CIN='$CIN'";        
+                SET CIN='$CIN', nom='$nom', prenom='$prenom', sexe='$sexe', Situation_familiale='$Situation_familiale', 
+                ville='$ville', telephone='$telephone', email='$email', grade='$grade', diplome_re='$diplome_re', 
+                diplome_accees='$diplome_acces', date_naissance='$date_naissance', rib='$rib' 
+                WHERE CIN='$oldCIN'";
+
         if ($conn->query($sql) === TRUE) {
-            header("Location: liste_formateurs.php?msgupdate=success");
-            exit();
+            header("Location:liste_formateurs.php");
         } else {
-            header("Location: liste_formateurs.php?msgupdate=errorUpdate");
-            exit();
+            echo "Erreur lors de la modification du formateur: " . $conn->error;
         }
+
+        // Réactiver les contraintes de clés étrangères
+        $conn->query("SET FOREIGN_KEY_CHECKS = 1");
     } else {
-        echo "Toutes les données nécessaires n'ont pas été fournies.";
+        echo "Données manquantes pour effectuer la modification.";
     }
-} else {
-    echo "Cette page ne peut être accédée directement.";
 }
 ?>
+
+<a href="liste_formateurs.php">Retour à la liste des formateurs</a>

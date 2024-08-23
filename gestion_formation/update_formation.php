@@ -27,12 +27,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->begin_transaction();
 
         try {
-            // Update the programme_groupes table first
+            // Disable foreign key checks
+            $conn->query("SET foreign_key_checks = 0");
+
+            // Update the dependent tables first
             $stmt1 = $conn->prepare("UPDATE programme_groupes SET matieres=? WHERE matieres=?");
             $stmt1->bind_param("ss", $new_matiere, $old_matiere);
             $stmt1->execute();
 
-            // Update the other tables
             $stmt2 = $conn->prepare("UPDATE suivi_formations SET matiere=? WHERE matiere=?");
             $stmt2->bind_param("ss", $new_matiere, $old_matiere);
             $stmt2->execute();
@@ -41,17 +43,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt3->bind_param("ss", $new_matiere, $old_matiere);
             $stmt3->execute();
 
-            $stmt4 = $conn->prepare("UPDATE programme_formation SET matieres=?, VH_1ere=?, VH_2eme=?, coefficient=?, niveau=? WHERE matieres=?");
-            $stmt4->bind_param("ssssss", $new_matiere, $vh_1ere, $vh_2eme, $coefficient, $niveau, $old_matiere);
+            $stmt4 = $conn->prepare("UPDATE resultats SET matiere=? WHERE matiere=?");
+            $stmt4->bind_param("ss", $new_matiere, $old_matiere);
             $stmt4->execute();
-            
+
+            // Update the programme_formation table last
+            $stmt5 = $conn->prepare("UPDATE programme_formation SET matieres=?, VH_1ere=?, VH_2eme=?, coefficient=?, niveau=? WHERE matieres=?");
+            $stmt5->bind_param("ssssss", $new_matiere, $vh_1ere, $vh_2eme, $coefficient, $niveau, $old_matiere);
+            $stmt5->execute();
+
+            // Re-enable foreign key checks
+            $conn->query("SET foreign_key_checks = 1");
+
+            // Commit the transaction
             $conn->commit();
 
             echo '<span id="successMessage" class="success-message">Formation modifiée avec succès!</span><br>';
         } catch (Exception $e) {
             // Rollback the transaction in case of an error
             $conn->rollback();
-            echo '<span id="errorMessage" class="error-message">Erreur lors de la modification de la formation: ' . $e->getMessage() . '</span><br>';
+            echo '<span id="errorMessage" class="error-message">Erreur lors de la modification de la formation: ' . $conn->error . '</span><br>';
         }
     } elseif (!isset($_POST['form_type']) || $_POST['form_type'] == 'select') {
         $selected_formation_id = $_POST['formation_id'];
@@ -68,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $sql = "SELECT matieres, niveau, VH_1ere, VH_2eme, (VH_1ere + VH_2eme) AS masse_horaire_globale, coefficient, 
 CAST(SUBSTRING(matieres, 3, LENGTH(matieres) - 2) AS UNSIGNED) AS uf_number 
-FROM programme_formation 
+FROM programme_formation where niveau!=4    
 ORDER BY uf_number ASC, date_creation ASC";
 $result = $conn->query($sql);
 ?>
@@ -178,8 +189,8 @@ $result = $conn->query($sql);
     .return {
         text-decoration: none;
         position: relative; 
-        float:right;
-        margin-right: 10px;
+        
+        margin-right: 30px;
         color: #fff;
         transition: all 0.3s ease;
     }
@@ -208,57 +219,62 @@ $result = $conn->query($sql);
 </head>
 <body>
 <div class='float-end mb-3'>
-    <a href="dashboard_formation.php" class="return"><i class="fa-solid fa-arrow-left"></i>&nbsp;Retour au tableau de bord</a>
+    <a href="dashboard_formation.php" class="return">
+        <img src="arrow_back.svg" class='imggg' alt="Retour"> Retour
+    </a>
 </div>
+
 <div class="container">
     <h2>Modifier Unité de Formation</h2>
-
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <input type="hidden" name="form_type" value="select">
         <label for="formation_id">Sélectionner une formation à modifier:</label>
-        <select name="formation_id" id="formation_id" onchange="this.form.submit()">
-            <option value="">Sélectionnez une formation</option>
+        <select id="formation_id" name="formation_id" onchange="this.form.submit()" required>
+            <option value="">-- Sélectionnez une formation --</option>
             <?php
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<option value='". $row["matieres"] . "' " . ($row["matieres"] == $selected_formation_id ? "selected" : "") . ">". $row["matieres"] ."</option>";
+                    $selected = ($selected_formation_id == $row['matieres']) ? 'selected' : '';
+                    echo "<option value='" . $row["matieres"] . "' " . $selected . ">" . $row["matieres"] . "</option>";
                 }
+            } else {
+                echo "<option value=''>No formations available</option>";
             }
             ?>
         </select>
     </form>
 
-    <?php if (!empty($row_old)) : ?>
+    <?php if (!empty($row_old)) { ?>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <input type="hidden" name="form_type" value="update">
-        <input type="hidden" name="formation_id" value="<?php echo htmlspecialchars($selected_formation_id); ?>">
+        <input type="hidden" name="formation_id" value="<?php echo $row_old['matieres']; ?>">
 
-        <label for="matieres">Nouvelle matière:</label>
-        <input type="text" id="matieres" name="matieres" value="<?php echo htmlspecialchars($row_old['matieres']); ?>" required>
+        <label for="matieres">Matieres:</label>
+        <input type="text" id="matieres" name="matieres" value="<?php echo $row_old['matieres']; ?>" required>
 
-        <label for="vh_1ere">VH 1ère année:</label>
-        <input type="text" id="vh_1ere" name="vh_1ere" value="<?php echo htmlspecialchars($row_old['VH_1ere']); ?>" required>
+        <label for="vh_1ere">VH 1ere:</label>
+        <input type="text" id="vh_1ere" name="vh_1ere" value="<?php echo $row_old['VH_1ere']; ?>" required>
 
-        <label for="vh_2eme">VH 2ème année:</label>
-        <input type="text" id="vh_2eme" name="vh_2eme" value="<?php echo htmlspecialchars($row_old['VH_2eme']); ?>" required>
+        <label for="vh_2eme">VH 2eme:</label>
+        <input type="text" id="vh_2eme" name="vh_2eme" value="<?php echo $row_old['VH_2eme']; ?>" required>
 
         <label for="coefficient">Coefficient:</label>
-        <input type="text" id="coefficient" name="coefficient" value="<?php echo htmlspecialchars($row_old['coefficient']); ?>" required>
+        <input type="text" id="coefficient" name="coefficient" value="<?php echo $row_old['coefficient']; ?>" required>
 
         <label for="niveau">Niveau:</label>
-        <input type="text" id="niveau" name="niveau" value="<?php echo htmlspecialchars($row_old['niveau']); ?>" required>
+        <input type="text" id="niveau" name="niveau" value="<?php echo $row_old['niveau']; ?>" required>
 
-        <button type="submit">Mettre à jour</button>
+        <button type="submit">Mettre à jour Formation</button>
     </form>
-    <?php endif; ?>
+    <?php } ?>
 </div>
 <script>
-    setTimeout(function() {
-        const successMessage = document.getElementById("successMessage");
-        if (successMessage) {
-            successMessage.classList.add("hidden");
-        }
-    }, 5000);
+    const successMessage = document.getElementById('successMessage');
+    if (successMessage) {
+        setTimeout(() => {
+            successMessage.classList.add('hidden');
+        }, 3000);
+    }
 </script>
 </body>
 </html>

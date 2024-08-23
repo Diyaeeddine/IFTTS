@@ -26,7 +26,7 @@ $result = mysqli_query($conn, $sqlpromotion);
     }
 
     .txt {
-        display: flex;
+        display: none;
         margin-left: 50px;
         margin-top: 25px;
         font-size: 12px;
@@ -75,7 +75,8 @@ $result = mysqli_query($conn, $sqlpromotion);
         color: #0d6efd;
         text-decoration: none;
         font-size:17px;
-        font-weight:bold;
+       
+        font-family:poppins, Arial,Helvetica;
     }
 
     #href {
@@ -117,6 +118,15 @@ $result = mysqli_query($conn, $sqlpromotion);
     table tbody tr:nth-child(even) {
         background-color: #f9f9f9;
     }
+    .headd{
+        margin:3.5em;
+    }
+    .link{
+        transition:.3s;
+    }
+    .link:hover{
+        text-decoration: underline;
+    }
 
 
     @media print {
@@ -125,6 +135,11 @@ $result = mysqli_query($conn, $sqlpromotion);
         .print{
             display: none;
         }
+        .txt{
+            display:flex;
+        }    .headd{
+        margin:0;
+    }
 
     }
     </style>
@@ -132,7 +147,7 @@ $result = mysqli_query($conn, $sqlpromotion);
 
 <body>
     <div class='cont'>
-        <div style='display:flex; justify-content:space-between; align-items:center'>
+        <div style='display:flex; justify-content:space-between; align-items:center' class='headd'>
             <div class="txt">
                 <p class='p'>ROYAUME DU MAROC <br>
                     MINISTERE DE L'INTERIEUR <br>

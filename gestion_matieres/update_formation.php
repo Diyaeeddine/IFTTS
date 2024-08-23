@@ -23,7 +23,7 @@
         margin: 0;
         padding: 50px 0px;
     }
-    .container {
+    .container {    
             max-width: 70%;
         margin: 100px 0px;
 

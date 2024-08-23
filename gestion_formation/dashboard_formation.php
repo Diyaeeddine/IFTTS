@@ -113,26 +113,43 @@ body {
 }
 
 .navbar {
-    border: none;
-    border-radius: 10px;
-    background-color: #fff;
-    color: #000;
-    font-family: calibri;
-    padding-right: 15px;
-    padding-left: 15px;
-}
+        border: none;
+        border-radius: 10px;
+        background-color: #fff;
+        color: #000;
+        font-family: calibri;
 
-.navdiv {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+        width: 100%;
+
+    }
+
+    .navdiv {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+    }
 
 li {
     list-style: none;
     display: inline-block;
 }
+@media screen and (max-width: 614px) {
+        li a {
+            display: none;
+        }
+    }
 
+    @media screen and (max-width: 346px) {
+        .logo {
+            display: none;
+        }
+
+    }
+    .cont {
+        margin-right: 20px;
+    }
 li a {
     border: solid 1px #fff;
     padding: 10px 10px;
@@ -150,15 +167,21 @@ li a:hover {
 }
 
 footer {
-    background-color: #fff;
-    color: #000;
-    padding: 20px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    font-weight: bold;
-    width: 100%;
-}
+        background-color: #fff;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+
+        width: 100%;
+    }
+
+    img {
+        margin: 5px 0 5px 30px;
+        width: 70px;
+        height: 70px;
+    }
 
 h1 {
     margin-bottom: 50px;
@@ -176,17 +199,18 @@ img {
 <body>
 
 <nav class="navbar">
-    <div class="navdiv">
-        <img src="img/logo_iftts.png" alt="">
-        <div class="logo">
-            <h2>IFTTS AL HOCEIMA</h2>
+        <div class="navdiv">
+            <img src="../home/img/logo.svg" alt="">
+            <div class="logo">
+                <h2>IFTTS AL HOCEIMA</h2>
+            </div>
+            <ul>
+                <li><a href="http://localhost/IFTTS/home/about.php">À propos</a></li>
+                <li><a href="./contact.php" class='cont'>Contact</a></li>
+
+            </ul>
         </div>
-        <ul>
-            <li><a href="../home/about.php">À propos</a></li>
-            <li><a href="../home/contact.php">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+    </nav>
 
 <div class="container">
     <div class='head'>

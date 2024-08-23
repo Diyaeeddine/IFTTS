@@ -30,11 +30,22 @@ $resultatCount = $conn->query($requeteCount);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des formateurs</title>
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+<!--  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
     <style>
     body,
     html {
         font-family: poppins, sans-serif;
+    }
+    .link{
+        text-decoration: none;
+    }
+    .link:hover{
+        text-decoration: underline;
+
     }
     </style>
 </head>
@@ -76,7 +87,7 @@ $resultatCount = $conn->query($requeteCount);
         </div>
         <div class="btn-container d-flex justify-content-between align-items-center ">
             <a href="./Ajouter_formateurs.php" class="btn btn-success"><img src="person-plus.svg" class="imgsvg"
-                    alt="person-plus">Ajouter un formateur</a>
+                    alt="person-plus"> Ajouter un formateur</a>
         </div>
     </div>
 
@@ -140,6 +151,7 @@ $resultatCount = $conn->query($requeteCount);
                             echo "<td>" . htmlspecialchars($row["nom"]) . "</td>";
                             echo "<td>" . htmlspecialchars($row["prenom"]) . "</td>";
                             echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
+                            
                             echo '<td class="tdBtn d-flex flex-nowrap justify-content-around">
                                    <div class=""> <a href="edit.php?CIN=' . htmlspecialchars($row["CIN"]) . '" class="btn btn-warning"><img src="pen.svg" class=""
                                     alt="Modifier"></a></div>
@@ -162,4 +174,5 @@ $resultatCount = $conn->query($requeteCount);
     </div>
 
 </body>
+
 </html>

@@ -10,16 +10,24 @@
     body, html {
         font-family: poppins, sans-serif;
     }
+    .link{
+        text-decoration: none;
+    }
+    .link:hover{
+        text-decoration: underline;
+
+    }
     </style>
 </head>
 
 <body>
+<div class='m-5' ><a href="liste_formateurs.php" class='link'><img src="back.svg" alt=""> Retour vers la liste</a></div>
+
     <div class="container-sm w-75 h-100 ">
         <div class='d-flex justify-content-between align-items-center'>
             <div>
-                <h2 class="mt-5 mb-5 text-bold ">Ajouter un formateur</h2>
+                <h2 class="mb-5 text-bold ">Ajouter un formateur</h2>
             </div>
-            <div><a href="liste_formateurs.php" class='link p-2'><img src="back.svg" alt=""> Retour vers la liste</a></div>
         </div>
         <form action="traitement.php" method="POST">
             <div class="row">
@@ -94,13 +102,6 @@
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-    function formatPhoneNumber(input) {
-        var phoneNumber = input.value.replace(/\D/g, '');
-        var formattedPhoneNumber = phoneNumber.replace(/(\d{2})(?=\d)/g, '$1 ');
-        input.value = formattedPhoneNumber;
-    }
-    </script>
 </body>
 
 </html>

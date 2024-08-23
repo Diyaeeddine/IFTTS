@@ -8,18 +8,19 @@
     <style>
     body {
         /* font-family: "Poppins", sans-serif; */
-        padding: 40px 30px;
+        padding: 20px;
     }
 
     table {
-        width: 100%;
+        width: 90%;
+        margin: 0 auto;
         border-collapse: collapse;
     }
 
     th,
     td {
         border: 1px solid #000;
-        padding: 8px;
+        padding: 6px;
         text-align: center;
     }
 
@@ -31,71 +32,73 @@
         border: 1px solid #000;
         padding: 8px;
     }
-    a {
-        text-decoration:none;
 
-        transition:.2s;
-        color:#007bff;
+    a {
+        text-decoration: none;
+
+        transition: .2s;
+        color: #007bff;
         font-family: poppins, sans-serif;
         font-weight: 500;
-        display:flex;
+        display: flex;
     }
-    a:hover{
 
-        color:#186fcd;
+    a:hover {
 
-        
+        color: #186fcd;
+
+
     }
-    .m{
-        padding:0 20px ;
+
+    .m {
+        padding: 0 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 10px;
     }
-    button{
-   
-        background-color:#0d6efd;
-        color:white;
-        border:none;
-        padding:10px 15px;
-        border-radius:4px;
-        cursor:pointer;
-        transition:.2s;
-        letter-spacing:.8px
-    
+
+    button {
+
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: .2s;
+        letter-spacing: .8px
     }
-    button:hover{
-        background-color:#1465dd;
+
+    button:hover {
+        background-color: #1465dd;
 
     }
+
     .print {
 
-    display: flex;
-    align-items: center;
+        display: flex;
+        align-items: center;
     }
-    @media print{
 
-        .m{
-            display:none;
+    @media print {
+
+        .m {
+            display: none;
         }
     }
-
-    
     </style>
 </head>
 
 <body>
-<div class='m'>
-    
-<div class='print'>
-                <button onclick="window.print()" class="print"><img class='imgs'
-                        src='./print.svg' alt=''> Imprimer</button>
-            </div>
-<div><a href="./dashboard_formation.php" class='link p-3'><img src="back.svg" alt="">Retour</a></div>
-
-
-</div>
+    <div class='m'>
+        <div>
+            <a href="./dashboard_formation.php" class='link p-3'><img src="back.svg" alt="">Retour</a>
+        </div>
+        <div class='print'>
+            <button onclick="window.print()" class="print"><img class='imgs' src='./print.svg' alt=''> Imprimer</button>
+        </div>
+    </div>
 
     <table border="1">
         <thead>
@@ -107,10 +110,10 @@
             <tr>
                 <th>UNITES DE FORMATION (UF)</th>
                 <th>Niveau</th>
-                <th>Volume Horaire <br>1ère Année</th>
-                <th>Volume Horaire <br>2ème Année</th>
-                <th>Masse <br>Horaire <br>Globale</th>
-                <th>Coefficient</th>
+                <th>VH <br>1ère Année</th>
+                <th>VH <br>2ème Année</th>
+                <th>M<br>H <br>Globale</th>
+                <th>Coef</th>
             </tr>
         </thead>
         <tbody>
@@ -131,7 +134,7 @@
 
                 $sql = "SELECT matieres, niveau, VH_1ere, VH_2eme, (VH_1ere + VH_2eme) AS masse_horaire_globale, coefficient, 
                 CAST(SUBSTRING(matieres, 3, LENGTH(matieres) - 2) AS UNSIGNED) AS uf_number 
-                FROM programme_formation 
+                FROM programme_formation where niveau!=4
                 ORDER BY uf_number ASC, date_creation ASC";
                 $result = $conn->query($sql);
 

@@ -9,9 +9,6 @@ if (isset($_GET["CIN"])) {
 
     try {
         // Supprimer les enregistrements dans les tables relationnelles et dépendantes
-        $sql1 = "DELETE FROM formateurs_matieres WHERE CIN_formateur = '$CIN'";
-        $conn->query($sql1);
-
         $sql2 = "DELETE FROM suivi_formations WHERE CIN = '$CIN'";
         $conn->query($sql2);
 

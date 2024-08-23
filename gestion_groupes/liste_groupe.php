@@ -34,6 +34,10 @@
             color: #333;
             font-weight: bold;
         }
+        td{
+            font-size:16px;
+            font-weight: 600;
+        }
     </style>
 </head>
 
@@ -44,15 +48,13 @@
     <h2 class="text-center mt-4 mb-4">Liste des groupes</h2>
     <div class="container">
         <div id="alert-message" class="alert" role="alert" style="display: none;"></div>
-        <a href="ajoutergroupe.php" class="btn btn-success mb-5">Ajouter un groupe</a>
-        <a href="liste_stagiaires.php" class="btn btn-success mb-5">La liste des stagiaires</a>
-        <table class='table'>
+        <a href="ajoutergroupe.php" class="btn btn-success mb-5">Ajouter un groupe</a>  
+        <table class='table table-bordered'>
             
-            <thead>
+            <thead class='thead-dark'>
                 <th>Numéro de groupe</th>
                 <th>Promotion</th>
                 <th>Filière</th>
-                <th>Liste des stagiaires</th>
                 <th>Actions</th>
             </thead>
             <?php 
@@ -64,7 +66,7 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo "<tr class='p-3'><td><p>Groupe ". $row['N_Groupe'] ." </p></td><td>". $row['promotion'] ."</td><td>". $row['filiere'] ."</td><td><a href='liste_stagiaire.php?N_Groupe=". $row['N_Groupe'] ."'>Afficher les stagiaires</a></td><td class='d-flex justify-content-around'>";             
+                    echo "<tr class='p-3'><td><p>Groupe ". $row['N_Groupe'] ." </p></td><td>". $row['promotion'] ."</td><td>". $row['filiere'] ."</td><td class='d-flex justify-content-around'>";             
                     echo "<a href='edit_groupe.php?N_Groupe=". $row['N_Groupe'] ."&filiere=".$row['filiere']."&promotion=".$row['promotion']."' class='btn btn-success'><img class='text-center' src='../gestion_suivi_formation/imgs/edit.svg' alt='Modifier'></a>";
                     echo "<a href='delete_groupe.php?N_Groupe=". $row['N_Groupe'] ."' onclick=\"return confirm('Êtes-vous sûr de supprimer le groupe [" . $row['N_Groupe'] . "] ?')\" class='btn btn-danger'><img class='text-center' src='../gestion_suivi_formation/imgs/delete.svg' alt='Supprimer'></a>";            
                     echo "</td></tr>";

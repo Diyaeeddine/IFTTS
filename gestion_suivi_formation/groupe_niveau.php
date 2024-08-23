@@ -20,7 +20,7 @@
             font-size: 18px; 
             line-height: 1.5; 
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
         }
@@ -43,11 +43,11 @@ if(isset($_GET['N_Groupe'])){
 <section class="container text-center d-flex justify-content-center align-items-center h-100 mt-5">
     <div class="row">
         <div class="col-md-6">
-            <a href='suivi_formation.php?N_Groupe=<?php echo $N_Groupe?>&Niveau=1' class="btn btn-success btn-custom">1ère année</a>
+            <a href='suivi_formation.php?N_Groupe=<?php echo $N_Groupe?>&Niveau=1' class="btn btn-success btn-custom">1<sup>ère &nbsp</sup> année</a>
             
         </div>
         <div class="col-md-6">
-            <a href='suivi_formation.php?N_Groupe=<?php echo $N_Groupe?>&Niveau=2' class="btn btn-success btn-custom">2ème année</a>
+            <a href='suivi_formation.php?N_Groupe=<?php echo $N_Groupe?>&Niveau=2' class="btn btn-success btn-custom">2<sup>ème &nbsp</sup> année</a>
         </div>
     </div>
 </section>

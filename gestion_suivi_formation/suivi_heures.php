@@ -18,7 +18,7 @@
             width: 100%;
         }
         .aretour {
-            font-weight: bold;
+          
             font-family: Poppins;
         }
         th, td {

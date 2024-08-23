@@ -130,10 +130,15 @@ if (isset($_GET['CIN']) && isset($_GET['matieres']) && isset($_GET['Niveau']) &&
         font-size: 12px;
         font-weight: bold;
     }
-
+.txt{
+    display: none;
+}
     @media print {
         .print {
             display: none;
+        }
+        .txt{
+            display: block;
         }
     }
     </style>

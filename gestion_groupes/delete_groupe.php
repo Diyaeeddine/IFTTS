@@ -6,8 +6,11 @@ if (isset($_GET['N_Groupe'])) {
     $sql = "DELETE FROM groupes WHERE N_Groupe='$N_Groupe'";
     $sql1 = "DELETE FROM suivi_formations WHERE N_Groupe='$N_Groupe'";
     $sql2 = "DELETE FROM programme_groupes WHERE N_Groupe='$N_Groupe'";
-    $sql3 = "DELETE FROM stagiaires WHERE N_Groupe='$N_Groupe'";
+    $sql3 = "DELETE FROM stagiaires_groupes WHERE N_Groupe='$N_Groupe'";
     $sql4 = "DELETE FROM vacations WHERE N_Groupe='$N_Groupe'";
+    $sql5 = "DELETE FROM pv_notes WHERE N_Groupe='$N_Groupe'";
+    $sql6 = "DELETE FROM resultats WHERE N_Groupe='$N_Groupe'";
+
 
     $conn->begin_transaction();
     
@@ -16,6 +19,8 @@ if (isset($_GET['N_Groupe'])) {
         $conn->query($sql2);
         $conn->query($sql3);
         $conn->query($sql4);
+        $conn->query($sql5);
+        $conn->query($sql6);
         
         if ($conn->query($sql) === TRUE) {
             $conn->commit();
