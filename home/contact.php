@@ -15,6 +15,8 @@ h1:hover{
 color:blue;
 }
     </style>
+        <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
 </head>
 <body>
 

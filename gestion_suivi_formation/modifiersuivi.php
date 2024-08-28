@@ -72,6 +72,7 @@ function calculateHours($horaire) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifier Séance</title>
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>

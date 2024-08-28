@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
@@ -17,10 +19,14 @@
         font-family: "Poppins", sans-serif;
         font-weight: 500;
         background-color: #166d3b;
-        background-image: linear-gradient(147deg, #166d3b 0%, #000000 74%);
+        background-image: linear-gradient(147deg, #166d3b 0%, #000000);
         padding-bottom: 300px;
         margin: 0;
         padding: 0;
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
     }
 
     .container {
@@ -107,6 +113,14 @@
         border-radius: 5px;
         padding: 10px;
         margin-bottom: 15px;
+    }
+    @media screen and (max-width:430px) {
+        .container{
+            width: 100%;
+            padding: 20px;
+            margin: 0;
+            margin-bottom: 20px;
+        }
     }
     </style>
 </head>

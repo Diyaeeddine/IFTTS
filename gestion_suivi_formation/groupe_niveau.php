@@ -6,6 +6,7 @@
     <title>Document</title>
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
 
     <style>
         html, body {
@@ -16,7 +17,9 @@
         }
         .btn-custom {
             width: 200px; 
-            height: 200px; 
+            height: 200px;
+        font-weight: 500;
+
             font-size: 18px; 
             line-height: 1.5; 
             display: flex;

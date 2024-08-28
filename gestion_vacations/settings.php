@@ -7,10 +7,15 @@
     <title>Modifier la valeur de Taux et IR</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
     <style>
     body,
     * {
-        font-family: poppins;
+        font-family: poppins , sans-serif;
+    }
+    .link{
+        font-weight: 500;
+
     }
     </style>
 </head>

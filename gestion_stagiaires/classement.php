@@ -68,6 +68,8 @@ while ($matiereRow = $matiereResult->fetch_assoc()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classement des stagiaires</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
     <style>
         body {
             font-family: poppins, Arial, sans-serif;
@@ -129,6 +131,10 @@ while ($matiereRow = $matiereResult->fetch_assoc()) {
             transition: .3s;
             font-size: 16px;
         }
+        .link{
+        font-weight: 500;
+
+        }
 
         .up {
             text-align: center;
@@ -157,9 +163,9 @@ while ($matiereRow = $matiereResult->fetch_assoc()) {
 </head>
 <body>
 <div style="" class='heit'>
-        <a style="display:flex; align-items:center" id="goi"
-            href="./liste_stagiaires.php?N_Groupe=<?php echo $N_Groupe ?>&Niveau=<?php echo $Niveau ?>" class=''>
-            <img src="back.svg" alt=""> Retour
+        <a style="" id="goi"
+            href="./liste_stagiaires.php?N_Groupe=<?php echo $N_Groupe ?>&Niveau=<?php echo $Niveau ?>" class='link'>
+            <img src="back.svg" alt="">Retour
         </a>
     </div>
 <div class="cont">

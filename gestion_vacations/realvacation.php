@@ -9,6 +9,8 @@
   a { color: #dc8100; text-decoration: none; }
   a:hover { color: #333; text-decoration: none; }
 </style>
+<link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
 
 <article>
     <h1><pre>Page en développement !</pre></h1>

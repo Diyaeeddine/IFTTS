@@ -18,6 +18,8 @@
         }
 
     </style>
+        <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
 </head>
 <body>
     <div class="about">

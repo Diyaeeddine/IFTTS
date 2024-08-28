@@ -6,12 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifier un Stagiaire</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
 
     <style>
     body,
     html {
         font-family: poppins, sans-serif;
     }
+    .link{
+        font-weight: 500;
+text-decoration: none;
+    }
+    .link:hover{
+        text-decoration: underline;
+    }  
     </style>
 </head>
 <?php 

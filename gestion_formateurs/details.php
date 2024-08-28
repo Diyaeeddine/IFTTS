@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Détails du formateur</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+    
     <style>
         /* Vos styles CSS personnalisés ici */
         body,
@@ -62,6 +64,8 @@
         }
         .link {
         text-decoration: none;
+        font-weight: 500;
+
     }
     .ppp{
       margin: 0;
@@ -106,7 +110,7 @@
         <?php
         include 'get_formateur_data.php';
         if (isset($CIN)) {
-            $buttonText = empty($image_src) ? "<img src='upload.svg'>Telecharger une image" : "<img src='refresh.png' id='grp4o'> Changer l'image";
+            $buttonText = empty($image_src) ? "<img src='upload.svg'>Télécharger une image" : "<img src='refresh.png' id='grp4o'> Changer l'image";
             echo '<div class="image-container">';
             if (!empty($image_src)) {
                 echo '<img src="' . $image_src . '" alt="" class="image">';

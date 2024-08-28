@@ -7,6 +7,8 @@
     <title>Liste des groupes</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
     <style>
         /* Ajout de style personnalisé */
         #container {

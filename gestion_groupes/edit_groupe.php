@@ -5,17 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un groupe</title>
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+
     <style>
     body,
     html {
         font-family: poppins, sans-serif;
 
     }
+    .retour{
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .retour:hover{
+        text-decoration: underline;
+
+    }
     </style>
 </head>
 
 <body>
+<div class='m-5'>
+        <a href="./liste_groupe.php" class='link retour'><img src="back.svg" alt="">Retour</a>
+    </div>
     <?php
 include 'connection.php';
 

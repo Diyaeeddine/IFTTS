@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifier un groupe</title>
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
     body,
@@ -12,12 +13,19 @@
         font-family: poppins, sans-serif;
 
     }
+    .retour{
+        text-decoration: none;
+    }
+    .retour:hover{
+        text-decoration: underline;
+
+    }
     </style>
 </head>
 
 <body>
     <div class='m-5'>
-        <a href="liste_groupe.php" class='link m-5'><img src="back.svg" alt="">Retour vers la liste</a>
+        <a href="liste_groupe.php" class='link m-5 retour'><img src="back.svg" alt="">Retour vers la liste</a>
     </div>
     <div class='container w-50 text-center'>
         <h2 class='m-5'>Ajouter un groupe</h2>
@@ -50,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <button type='submit' class='btn btn-success float-start me-3' style='color:white'>Ajouter</button>
+            <button type='submit' class='btn btn-success float-start me-3' style='color:white'><img src="group_add.svg" alt=""> Ajouter</button>
         </form>
     </div>
 </body>

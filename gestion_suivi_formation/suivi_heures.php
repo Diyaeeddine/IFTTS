@@ -7,6 +7,8 @@
     <title>Document</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
     <style>
         .text-center {
             text-align: center;
@@ -28,6 +30,9 @@
             border: 1px solid black;
             border-collapse: collapse;
             padding: 8px;
+        }
+        .link{
+            font-weight:500;
         }
     </style>
 </head>

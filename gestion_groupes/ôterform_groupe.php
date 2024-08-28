@@ -24,6 +24,7 @@ $result_trainer_groups = mysqli_query($conn, $sql_trainer_groups);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ôter des Formateurs à des Groupes</title>
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body,

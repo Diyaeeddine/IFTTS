@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programme formation</title>
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+    
     <style>
     body {
         /* font-family: "Poppins", sans-serif; */
@@ -15,12 +17,13 @@
         width: 90%;
         margin: 0 auto;
         border-collapse: collapse;
+
     }
 
     th,
     td {
         border: 1px solid #000;
-        padding: 6px;
+        padding: 4px 6px;
         text-align: center;
     }
 
@@ -86,6 +89,9 @@
         .m {
             display: none;
         }
+        table {
+            width: 95%;
+        }
     }
     </style>
 </head>
@@ -104,15 +110,15 @@
         <thead>
             <tr>
                 <th colspan="8">
-                    <h1>PROGRAMME DE FORMATION</h1>
+                    <h3>PROGRAMME DE FORMATION</h3>
                 </th>
             </tr>
             <tr>
                 <th>UNITES DE FORMATION (UF)</th>
                 <th>Niveau</th>
-                <th>VH <br>1ère Année</th>
-                <th>VH <br>2ème Année</th>
-                <th>M<br>H <br>Globale</th>
+                <th>VH <br>1<sup>ère</sup> Année</th>
+                <th>VH <br>2<sup>ème</sup> Année</th>
+                <th>MH <br>Globale</th>
                 <th>Coef</th>
             </tr>
         </thead>
@@ -148,11 +154,11 @@
         <td>";
 
 if ($row["niveau"] == 1) {
-    echo "1ère année";
+    echo "1<sup>ère</sup> année";
 } elseif ($row["niveau"] == 2) {
-    echo "2ème année";
+    echo "2<sup>ème</sup> année";
 } elseif ($row["niveau"] == 3) {
-    echo "1ère et 2ème année";
+    echo "1<sup>ère</sup> et 2<sup>ème</sup> année";
 }
 
 echo    "</td>

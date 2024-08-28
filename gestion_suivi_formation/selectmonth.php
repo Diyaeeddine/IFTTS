@@ -10,11 +10,18 @@ include 'connection.php';
     <title>Mois de l'Année</title>
     <!-- Bootstrap CSS -->
     <style>
-    a {
+        body{
+            font-family:poppins, sans-serif;
+        }
+    .link {
         font-weight: 500;
+        font-size: 16px;
+
     }
     </style>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
     <script>
     // Fonction pour ajouter les mois à la liste déroulante
     function populateMonths() {
@@ -57,7 +64,7 @@ include 'connection.php';
         $matieres = htmlspecialchars($_GET['matieres'], ENT_QUOTES);
     ?>
     <div class='m-5'>
-        <a href="suivi_formation.php?N_Groupe=<?php echo $N_Groupe ?>&Niveau=<?php echo $Niveau ?>" class='link d-flex'>
+        <a href="suivi_formation.php?N_Groupe=<?php echo $N_Groupe ?>&Niveau=<?php echo $Niveau ?>" class='link'>
             <img src="back.svg" alt="">Retour
         </a>
     </div>

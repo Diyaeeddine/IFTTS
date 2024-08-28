@@ -12,6 +12,8 @@
         rel="stylesheet">
 
     <title>Suppression de Formation</title>
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+    
     <style>
     * {
         margin: 0;
@@ -26,9 +28,13 @@
 
     body {
         background-color: #166d3b;
-        background-image: linear-gradient(147deg, #166d3b 0%, #000000 74%);
+        background-image: linear-gradient(147deg, #166d3b 0%, #000000);
         padding-bottom: 300px;
         margin-top: 100px;
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
     }
 
     .container {
@@ -55,6 +61,14 @@
         margin-bottom: 10px;
         font-weight: bold;
         color: #555;
+    }
+    @media screen and (max-width:430px) {
+        .container{
+            width: 100%;
+            padding: 20px;
+            margin: 0;
+            margin-bottom: 20px;
+        }
     }
 
     select,

@@ -86,14 +86,20 @@ $result = $conn->query($sql);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<title>Update Formation</title>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+    <title>Update Formation</title>
+    <style>
     /* Reset some default styles */
     * {
         margin: 0;
@@ -103,13 +109,21 @@ $result = $conn->query($sql);
         font-weight: 500;
         text-decoration: none;
     }
+
     body {
         background-color: #166d3b;
         background-image: linear-gradient(147deg, #166d3b 0%, #000000 74%);
         margin: 0;
-        height:100vh;
+        height: 100vh;
         padding: 50px 0px;
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        align-content: center;
+
     }
+
     .container {
         max-width: 70%;
         margin: 50px auto;
@@ -118,41 +132,72 @@ $result = $conn->query($sql);
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     h2 {
         margin-bottom: 20px;
         color: #333;
     }
+
     form {
         width: 100%;
     }
+
     label {
         font-size: 16px;
         margin-bottom: 8px;
         color: #333;
     }
+
+    @media screen and (max-width: 479px) {
+        div.container {
+            margin: 0;
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 20px;
+            margin-top:0px !important;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        body{
+            margin:0;
+        }
+
+        h2 {
+            margin-top: 70px;
+            text-align: center;
+        }
+    }
+
     .hrefs {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     .hrefs a {
         margin: 20px;
     }
+
     .btn {
         display: flex;
         align-items: center;
     }
+
     .btn a {
         margin-right: 10px;
         text-decoration: none;
         color: #01418f;
         transition: ease-in-out 0.1s;
     }
+
     .btn a:hover {
         color: #008000;
     }
+
     select,
-    input[type="text"], option,
+    input[type="text"],
+    option,
     button[type="submit"] {
         width: 100%;
         padding: 12px;
@@ -162,6 +207,7 @@ $result = $conn->query($sql);
         box-sizing: border-box;
         font-size: 16px;
     }
+
     button[type="submit"] {
         background: #ffc107;
         color: #000;
@@ -169,6 +215,7 @@ $result = $conn->query($sql);
         cursor: pointer;
         transition: ease-in-out 0.3s;
     }
+
     button[type="submit"]:hover {
         box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     }
@@ -183,55 +230,67 @@ $result = $conn->query($sql);
         padding: 10px;
         display: block;
     }
+
     .hidden {
         opacity: 0;
     }
+
     .return {
         text-decoration: none;
-        position: relative; 
-        
+        position: relative;
         margin-right: 30px;
-        color: #fff;
+        color: black;
         transition: all 0.3s ease;
     }
 
     .return::after {
-        text-decoration:none;
+        text-decoration: none;
         content: "";
         position: absolute;
-        bottom: -5px; /* Adjust as needed */
+        bottom: -5px;
+        /* Adjust as needed */
         left: 0;
         width: 100%;
         height: 2px;
-        background-color: #fff; /* Underline color */
-        transform: scaleX(0); /* Initial scale to hide */
+        background-color: #fff;
+        /* Underline color */
+        transform: scaleX(0);
+        /* Initial scale to hide */
         transform-origin: bottom right;
         transition: transform 0.3s ease;
     }
+
     .return:hover::after {
         transform: scaleX(1);
         transform-origin: bottom right;
     }
-    .return:hover{
-        color: #fff;
-    }
-</style>
-</head>
-<body>
-<div class='float-end mb-3'>
-    <a href="dashboard_formation.php" class="return">
-        <img src="arrow_back.svg" class='imggg' alt="Retour"> Retour
-    </a>
-</div>
 
-<div class="container">
-    <h2>Modifier Unité de Formation</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <input type="hidden" name="form_type" value="select">
-        <label for="formation_id">Sélectionner une formation à modifier:</label>
-        <select id="formation_id" name="formation_id" onchange="this.form.submit()" required>
-            <option value="">-- Sélectionnez une formation --</option>
-            <?php
+    .return:hover {
+        color: black;
+    }
+
+    img.imggg {
+        filter: brightness(0) invert(0);
+    }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class='float-end mb-3'>
+            <a href="dashboard_formation.php" class="return">
+                <img src="arrow_back.svg" class='imggg' alt="Retour"> Retour
+            </a>
+        </div>
+        <h2>Modifier Unité de Formation</h2>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <input type="hidden" name="form_type" value="select">
+            <label for="formation_id">Sélectionner une formation à modifier:</label>
+            <select id="formation_id" name="formation_id" onchange="this.form.submit()" required>
+                <option value="">-- Sélectionnez une formation --</option>
+                <?php
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
                     $selected = ($selected_formation_id == $row['matieres']) ? 'selected' : '';
@@ -241,42 +300,44 @@ $result = $conn->query($sql);
                 echo "<option value=''>No formations available</option>";
             }
             ?>
-        </select>
-    </form>
+            </select>
+        </form>
 
-    <?php if (!empty($row_old)) { ?>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <input type="hidden" name="form_type" value="update">
-        <input type="hidden" name="formation_id" value="<?php echo $row_old['matieres']; ?>">
+        <?php if (!empty($row_old)) { ?>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <input type="hidden" name="form_type" value="update">
+            <input type="hidden" name="formation_id" value="<?php echo $row_old['matieres']; ?>">
 
-        <label for="matieres">Matieres:</label>
-        <input type="text" id="matieres" name="matieres" value="<?php echo $row_old['matieres']; ?>" required>
+            <label for="matieres">Matieres:</label>
+            <input type="text" id="matieres" name="matieres" value="<?php echo $row_old['matieres']; ?>" required>
 
-        <label for="vh_1ere">VH 1ere:</label>
-        <input type="text" id="vh_1ere" name="vh_1ere" value="<?php echo $row_old['VH_1ere']; ?>" required>
+            <label for="vh_1ere">VH 1ere:</label>
+            <input type="text" id="vh_1ere" name="vh_1ere" value="<?php echo $row_old['VH_1ere']; ?>" required>
 
-        <label for="vh_2eme">VH 2eme:</label>
-        <input type="text" id="vh_2eme" name="vh_2eme" value="<?php echo $row_old['VH_2eme']; ?>" required>
+            <label for="vh_2eme">VH 2eme:</label>
+            <input type="text" id="vh_2eme" name="vh_2eme" value="<?php echo $row_old['VH_2eme']; ?>" required>
 
-        <label for="coefficient">Coefficient:</label>
-        <input type="text" id="coefficient" name="coefficient" value="<?php echo $row_old['coefficient']; ?>" required>
+            <label for="coefficient">Coefficient:</label>
+            <input type="text" id="coefficient" name="coefficient" value="<?php echo $row_old['coefficient']; ?>"
+                required>
 
-        <label for="niveau">Niveau:</label>
-        <input type="text" id="niveau" name="niveau" value="<?php echo $row_old['niveau']; ?>" required>
+            <label for="niveau">Niveau:</label>
+            <input type="text" id="niveau" name="niveau" value="<?php echo $row_old['niveau']; ?>" required>
 
-        <button type="submit">Mettre à jour Formation</button>
-    </form>
-    <?php } ?>
-</div>
-<script>
+            <button type="submit">Mettre à jour Formation</button>
+        </form>
+        <?php } ?>
+    </div>
+    <script>
     const successMessage = document.getElementById('successMessage');
     if (successMessage) {
         setTimeout(() => {
             successMessage.classList.add('hidden');
         }, 3000);
     }
-</script>
+    </script>
 </body>
+
 </html>
 
 <?php

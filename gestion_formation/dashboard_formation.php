@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
 <title>Dashboard Formation</title>
 <style>
 * {
@@ -19,6 +21,10 @@ body {
     background: #166d3b;
     background-image: linear-gradient(147deg, #166d3b 0%, #000000 74%);
     padding-bottom: 400px;
+    background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
 
 .container {
@@ -147,6 +153,37 @@ li {
         }
 
     }
+    @media screen and (max-width:479px) {
+
+        h1{
+                text-align: center;
+            }
+            div.container{
+
+            height: 100vh;
+        }
+        div.head{
+            display: flex;
+            flex-wrap:wrap;
+            
+        }
+                 a.return{
+            float:right;
+        } 
+        div.btn-container{
+            display: flex;
+            flex-direction: column;
+            justify-content:center;
+        }
+        a.btn{
+            
+        }
+        footer{
+            display: block;
+        }
+        }
+
+    
     .cont {
         margin-right: 20px;
     }
@@ -194,15 +231,18 @@ img {
     padding: 10px;
 }
 
+.aaaa{
+    cursor:pointer;
+}
 </style>
 </head>
 <body>
 
 <nav class="navbar">
         <div class="navdiv">
-            <img src="../home/img/logo.svg" alt="">
+        <a href="../home/home.php" class='aaaa'><img src="../home/img/logo.svg" alt=""></a>
             <div class="logo">
-                <h2>IFTTS AL HOCEIMA</h2>
+                <h2 style='cursor:pointer;'>IFTTS AL HOCEIMA</h2>
             </div>
             <ul>
                 <li><a href="http://localhost/IFTTS/home/about.php">À propos</a></li>

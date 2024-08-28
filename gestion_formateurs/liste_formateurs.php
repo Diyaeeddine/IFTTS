@@ -32,7 +32,9 @@ $resultatCount = $conn->query($requeteCount);
     <title>Liste des formateurs</title>
     <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
 <!--  -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+<link rel="icon" href="../home/img/logo.svg" type="image/icon">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <style>
@@ -42,6 +44,8 @@ $resultatCount = $conn->query($requeteCount);
     }
     .link{
         text-decoration: none;
+        font-weight: 500;
+
     }
     .link:hover{
         text-decoration: underline;
@@ -86,7 +90,7 @@ $resultatCount = $conn->query($requeteCount);
             <a href="../home/home.php" class='link d-flex'><img src="back.svg" alt="">Retour à la page d'accueil</a>
         </div>
         <div class="btn-container d-flex justify-content-between align-items-center ">
-            <a href="./Ajouter_formateurs.php" class="btn btn-success"><img src="person-plus.svg" class="imgsvg"
+            <a href="./Ajouter_formateurs.php" class="btn btn-success"><img src="add_user.svg" class="imgsvg"
                     alt="person-plus"> Ajouter un formateur</a>
         </div>
     </div>

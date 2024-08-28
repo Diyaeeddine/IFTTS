@@ -68,6 +68,7 @@ if (isset($_GET['CIN']) && isset($_GET['matieres']) && isset($_GET['Niveau']) &&
 
 <head>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -106,6 +107,10 @@ if (isset($_GET['CIN']) && isset($_GET['matieres']) && isset($_GET['Niveau']) &&
 
     .Tetablissement {
         margin-bottom: 20px;
+    }
+    .link{
+        font-weight: 500;
+
     }
 
     .Tetablissement td {
@@ -176,7 +181,7 @@ if (isset($_GET['CIN']) && isset($_GET['matieres']) && isset($_GET['Niveau']) &&
         </div>
         <div>
             <a href="table_suivi.php?N_Groupe=<?php echo $N_Groupe ?>&Niveau=<?php echo $Niveau ?>&CIN=<?php echo $CIN ?>&matieres=<?php echo htmlspecialchars(urlencode($_GET['matieres'])) ?>&mois=<?php echo $mois ?>"
-                class="link print " style='font-size:17px'><img src="back.svg" alt="Retour">Retour</a>
+                class="link print" style='font-size:17px'><img src="back.svg" alt="Retour">Retour</a>
         </div>
     </div>
     <div class="content">

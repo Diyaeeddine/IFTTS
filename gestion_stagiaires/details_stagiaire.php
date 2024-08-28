@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Détails du stagiaire</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
     <style>
     body,
     html {
@@ -24,6 +26,8 @@
 
     .link {
         text-decoration: none;
+        font-weight: 500;
+
     }
 
     .link:hover {

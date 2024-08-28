@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programmes et Notes</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
     <style>
         * {
             font-family: Poppins, "Helvetica Neue", Helvetica, Arial;
@@ -29,6 +31,10 @@
         .frota th {
             background-color: #323539;
             color: white;
+        }
+        .back-link{
+        font-weight: 500;
+
         }
         .back-link:hover {
             text-decoration: underline;

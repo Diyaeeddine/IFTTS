@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
 
-$N_Groupe = isset($_GET['groupe']) ? (int)$_GET['groupe'] : 0;
+$N_Groupe = isset($_GET['N_Groupe']) ? (int)$_GET['N_Groupe'] : 0;
 $Niveau = isset($_GET['Niveau']) ? (int)$_GET['Niveau'] : 0;
 $mois = isset($_GET['mois']) ? $conn->real_escape_string($_GET['mois']) : '';
 $sqlpromotion='SELECT DISTINCT promotion FROM groupes WHERE N_Groupe= '.$N_Groupe;
@@ -17,12 +17,14 @@ $result = mysqli_query($conn, $sqlpromotion);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau des Frais</title>
+    <title>Frais de Cours et Vacations</title>
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <style>
     * {
-        font-family: arial;
+        font-family: poppins , arial;
     }
 
     .txt {
@@ -74,6 +76,8 @@ $result = mysqli_query($conn, $sqlpromotion);
     a {
         color: #0d6efd;
         text-decoration: none;
+        font-weight: 500;
+
         font-size:17px;
        
         font-family:poppins, Arial,Helvetica;
@@ -127,6 +131,10 @@ $result = mysqli_query($conn, $sqlpromotion);
     .link:hover{
         text-decoration: underline;
     }
+    .popp{
+       
+font-family: poppins ,sans-serif  ;
+    }
 
 
     @media print {
@@ -166,7 +174,7 @@ $result = mysqli_query($conn, $sqlpromotion);
         </div>
         <div>
             <div class='print'>
-                <button onclick="window.print()" class="print"><img class='imgs'
+                <button onclick="window.print()" class="print popp"><img class='imgs'
                         src='./print.svg' alt=''> Imprimer</button>
             </div>
             <h3>FRAIS DE COURS ET VACATIONS <br>

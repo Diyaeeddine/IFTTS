@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des stagiaires</title>
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
     <style>
     body,
     html {
@@ -31,6 +33,8 @@
         color: #007bff;
         transition: .3s;
         text-decoration: none;
+        font-weight: 500;
+
     }
 
     #goi:hover {
@@ -112,7 +116,7 @@
         </div>
 <div class='container'></div>
         <?php
-        $sql = "SELECT s.id, s.CIN, s.nom, s.prenom, s.date_N, s.address, s.tel, s.email
+        $sql = "SELECT s.Num_S, s.id, s.CIN, s.nom, s.prenom, s.date_N, s.address, s.tel, s.email
                 FROM stagiaires s
                 JOIN stagiaires_groupes sg ON s.id = sg.id_stagiaire
                 WHERE sg.N_Groupe = $N_Groupe AND sg.Niveau = $Niveau
@@ -123,9 +127,11 @@
             echo '<table class="center">';
             echo '<thead>';
             echo '<tr>';
-            echo '<th scope="col">CIN</th>';
+            echo '<th scope="col">N° Stagiaire</th>';
             echo '<th scope="col">Nom</th>';
             echo '<th scope="col">Prénom</th>';
+            echo '<th scope="col">CIN</th>';
+
             echo '<th scope="col">Date de naissance</th>'; 
             echo '<th scope="col">Adresse</th>';
             echo '<th scope="col">Téléphone</th>'; 
@@ -135,9 +141,10 @@
             echo '<tbody>';
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<tr>';
-                echo '<td>' . htmlspecialchars($row["CIN"]) . '</td>';
+                echo '<td>' . htmlspecialchars($row["Num_S"]) . '</td>';
                 echo '<td>' . htmlspecialchars($row["nom"]) . '</td>';
                 echo '<td>' . htmlspecialchars($row["prenom"]) . '</td>';
+                echo '<td>' . htmlspecialchars($row["CIN"]) . '</td>';
                 echo '<td>' . htmlspecialchars($row["date_N"]) . '</td>';
                 echo '<td>' . htmlspecialchars($row["address"]) . '</td>';
                 echo '<td>' . htmlspecialchars($row["tel"]) . '</td>';
@@ -148,7 +155,7 @@
             echo '</tbody>';
             echo '</table>';
         } else {
-            echo "<p class='text-center'>Aucun stagiaire trouvé pour ce groupe.</p>";
+            echo "<center><p class='text-center'>Aucun stagiaire trouvé pour ce groupe.</p></center>";
         }
         mysqli_close($conn);
     }

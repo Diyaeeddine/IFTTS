@@ -6,6 +6,8 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Bulletin de 1ère Année</title>
             <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+        <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
 
 
             <style>
@@ -197,6 +199,8 @@
 
             }
             .back-link{
+        font-weight: 500;
+
                 display: flex;
                 font-size:1.3em;
                 align-items:center;

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des stagiaires</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
     <style>
     body,
     html {
@@ -26,6 +28,10 @@
     width:22px;
     height:22px;
     filter:brightness(0) invert(1);
+}
+.link{
+    font-weight: 500;
+
 }
 
     </style>

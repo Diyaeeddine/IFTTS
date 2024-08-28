@@ -7,6 +7,8 @@
     <title>Liste des groupes</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
     <style>
         /* Ajout de style personnalisé */
         #container {
@@ -43,12 +45,12 @@
 
 <body>
     <div class='m-5'>
-        <a href="../home/home.php" class='link '><img src="back.svg" alt="">Retour à la page d'accueil</a>
+        <a href="../home/home.php" class='link'><img src="back.svg" alt="">Retour à la page d'accueil</a>
     </div>
     <h2 class="text-center mt-4 mb-4">Liste des groupes</h2>
     <div class="container">
         <div id="alert-message" class="alert" role="alert" style="display: none;"></div>
-        <a href="ajoutergroupe.php" class="btn btn-success mb-5">Ajouter un groupe</a>  
+        <a href="ajoutergroupe.php" class="btn btn-success mb-5"><img src="./group_add.svg" alt=""> Ajouter un groupe</a>  
         <table class='table table-bordered'>
             
             <thead class='thead-dark'>

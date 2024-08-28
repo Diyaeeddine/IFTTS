@@ -155,6 +155,8 @@ if (isset($_GET['CIN']) && isset($_GET['matieres']) && isset($_GET['Niveau']) &&
 
 <head>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -199,12 +201,15 @@ if (isset($_GET['CIN']) && isset($_GET['matieres']) && isset($_GET['Niveau']) &&
     .left-align {
         text-align: left !important;
     }
+    .link{
+        font-weight: 500;
+    }
     </style>
 </head>
 <body>
     <div class="d-flex justify-content-between m-5">
         <div>
-            <a href="selectmonth.php?N_Groupe=<?php echo htmlspecialchars($N_Groupe, ENT_QUOTES) ?>&Niveau=<?php echo htmlspecialchars($Niveau, ENT_QUOTES) ?>&CIN=<?php echo htmlspecialchars($CIN, ENT_QUOTES) ?>&matieres=<?php echo htmlspecialchars(urlencode($_GET['matieres'])) ?>" class="link d-flex"><img src="back.svg" alt="Retour">Retour</a>
+            <a href="selectmonth.php?N_Groupe=<?php echo htmlspecialchars($N_Groupe, ENT_QUOTES) ?>&Niveau=<?php echo htmlspecialchars($Niveau, ENT_QUOTES) ?>&CIN=<?php echo htmlspecialchars($CIN, ENT_QUOTES) ?>&matieres=<?php echo htmlspecialchars(urlencode($_GET['matieres'])) ?>" class="link"><img src="back.svg" alt="Retour">Retour</a>
         </div>
         <a href="fiche_suivi.php?N_Groupe=<?php echo htmlspecialchars($N_Groupe, ENT_QUOTES) ?>&Niveau=<?php echo htmlspecialchars($Niveau, ENT_QUOTES) ?>&CIN=<?php echo htmlspecialchars($CIN, ENT_QUOTES) ?>&matieres=<?php echo htmlspecialchars(urlencode($_GET['matieres'])) ?>&mois=<?php echo htmlspecialchars($mois, ENT_QUOTES) ?>" class="float-right link">Fiche de Suivi</a>
     </div>

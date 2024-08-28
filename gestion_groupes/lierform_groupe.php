@@ -44,6 +44,7 @@ $result_groups = mysqli_query($conn, $sql_groups);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liens Formateur-Groupe</title>
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body,

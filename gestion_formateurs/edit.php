@@ -30,15 +30,18 @@ if (isset($_GET['CIN']) ) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifier le formateur <?php echo $prenom;?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../home/img/logo.svg" type="image/icon">
+    
     <style>
         .link{
             text-decoration: none;
+        font-weight: 500;
+
             font-size: 16px;
-            margin-right: 10px;
-            transition: color 0.3s ease;
+         
         }
         .link:hover{
-            color: #007bff;
+           
             text-decoration: underline;
         }
     </style>
